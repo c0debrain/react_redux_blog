@@ -8,7 +8,7 @@ class BlogForm extends React.Component {
     e.preventDefault();
     const { dispatch, id } = this.props;
     const { title, body, } = this.state;
-    const blog = { id, title, body };
+    const blog = { id, title, body, showBlog: false };
     dispatch({ type: 'ADD_BLOG', blog })
     dispatch({ type: 'INC_ID' })
     this.setState({ title: "", body: "", })

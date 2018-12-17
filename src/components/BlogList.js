@@ -1,20 +1,16 @@
 import React from 'react';
+import Blog from './Blog';
 import { connect, } from 'react-redux';
 
 const BlogList = ({ blogs }) => (
   <div>
     <h1>Blogs</h1>
     <ul>
-      { blogs.map( b => {
-        return (
-          <li key={b.id}>
-            Title: {b.title}
-            <br />
-            {b.body}
-          </li>
-        )
-      })
-    }
+      { 
+        blogs.map( b => {
+          return ( <Blog key={b.id} {...b} /> )
+        })
+      }
     </ul>
   </div>
 )
