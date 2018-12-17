@@ -1,8 +1,9 @@
 import React from 'react';
+import Body from './Body';
 
-const BlogBody = ({ body, showBlog }) => {
+const BlogBody = ({ id, title, body, showBlog, dispatch }) => {
   if (showBlog) {
-    return body
+    return <Body id={id} title={title} body={body} showBlog={showBlog} dispatch={dispatch} />
   } else {
     return "Click to see Blog Post"
   }

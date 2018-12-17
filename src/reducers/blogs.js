@@ -10,6 +10,11 @@ const blogs = ( state = [], action) => {
           return {...blog, showBlog: !blog.showBlog}
         return blog
       })
+    case 'DELETE_BLOG':
+      return state.filter( blog => {
+        if (blog.id !== action.id)
+          return blog
+      })
     default:
       return state
   }

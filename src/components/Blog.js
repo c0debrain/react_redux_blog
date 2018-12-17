@@ -8,7 +8,7 @@ const Blog = ({ id, title, body, showBlog, dispatch }) => (
   >
   { title }
   <br />
-  <BlogBody body={body} showBlog={showBlog} />
+  <BlogBody id={id} title={title} body={body} showBlog={showBlog} dispatch={dispatch} />
   </li>
 )
 
