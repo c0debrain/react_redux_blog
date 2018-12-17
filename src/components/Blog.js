@@ -1,14 +1,14 @@
 import React from 'react';
-import BlogBody from './BlogBody'
+import { Link } from 'react-router-dom';
 import { connect, } from 'react-redux';
 
 
-const Blog = ({ id, title, body, showBlog, dispatch }) => (
-  <li onClick={() => dispatch({ type: 'TOGGLE_BLOG', id })}
+const Blog = ({ id, title, }) => (
+  <li key={id}
   >
   { title }
   <br />
-  <BlogBody id={id} title={title} body={body} showBlog={showBlog} dispatch={dispatch} />
+  <Link to={`/blog/${id}`}><button>View</button></Link>
   </li>
 )
 

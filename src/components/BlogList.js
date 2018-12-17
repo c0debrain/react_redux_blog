@@ -4,7 +4,6 @@ import { connect, } from 'react-redux';
 
 const BlogList = ({ blogs }) => (
   <div>
-    <h1>Blogs</h1>
     <ul>
       { 
         blogs.map( b => {

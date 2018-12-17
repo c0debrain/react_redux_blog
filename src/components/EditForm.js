@@ -1,17 +1,16 @@
 import React from 'react';
 import { connect, } from 'react-redux';
 
-class BlogForm extends React.Component {
-  state = { title: "", body: "", };
+class EditForm extends React.Component {
+  state = { id: "", title: "", body: "", };
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const { dispatch, id } = this.props;
-    const { title, body, } = this.state;
-    const blog = { id, title, body, showEdit: false,  };
-    dispatch({ type: 'ADD_BLOG', blog })
-    dispatch({ type: 'INC_ID' })
-    this.setState({ title: "", body: "", })
+    const { dispatch, } = this.props;
+    const { title, body, id } = this.state;
+    const blog = { id, title, body, };
+    dispatch({ type: 'EDIT_BLOG', blog })
+    this.setState({ id: "", title: "", body: "", })
   }
 
   handleChange = ({ target: { name, value }}) => {
@@ -21,8 +20,8 @@ class BlogForm extends React.Component {
   render() {
     const { title, body, } = this.state;
     return(
-      <div>
-        <h3>Add a Blog</h3>
+      <div style={{ width: "50%"}}>
+        <h3>Edit Blog Post</h3>
         <form onSubmit={this.handleSubmit}>
           Blog Title: <br />
           <input name="title" value={title} onChange={this.handleChange} />
@@ -38,8 +37,8 @@ class BlogForm extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return { id: state.nextId }
+const mapReduxToProps = (state) => {
+  return { title: state.title, body: state.body, id: state.id, }
 }
 
-export default connect(mapStateToProps)(BlogForm);
+export default connect(mapReduxToProps)(EditForm);
