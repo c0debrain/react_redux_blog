@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
+import BlogForm from './components/BlogForm';
 
-
-class App extends Component {
-  render() {
-    return (
-      <div>
-
-      </div>
-    );
-  }
-}
+const App = () => ( 
+  <div className="App">
+    <BlogForm />
+  </div>
+);
 
 export default App;
